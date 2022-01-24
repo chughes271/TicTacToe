@@ -47,11 +47,54 @@ displaymatrix = [["1","2","3"],
                  ["4","5","6"],
                  ["7","8","9"]]
 
+"""
+    @Cody: Week 2 update: 
+        - Move to using functions
+        - Change input for users to (row, column) pair. 
+        - Bonus: Ditch globals in functions
+        
+    @Talk: 
+        some_variable = 10 ## Global Variable defined because it's not in a function or class
+        def add_one(var):
+            return var+1
+        
+        def add_two():
+            return some_variable + 2
+        
+        ## Adding 2 to some_variable
+        some_variable = add_one(some_variable)
+        some_variable = add_one(some_variable)
+        
+        some_variable = add_two()
+        ## Note that both do the same thing but add_two you have no idea what's going on
+        
+        def add_one_and_check_if_is_odd(inp):
+
+    :param inp:
+    :return: touple of a number and a boolean
+
+    inp = inp+1
+    return inp, (inp % 2) == 0
+for i in range(5):
+    print(i, add_one_and_check_if_is_odd(i))
+
+
+touple_example = (1,3,4,5)
+list_example = [1,2,3,4]
+a,b,c,d = touple_example
+print(c)
+
+print ("Fin")
+"""
+
 print("Below shows the TicTacToe board and locations to play")
 
 print(displaymatrix[0])
 print(displaymatrix[1])
 print(displaymatrix[2])
+
+for row in displaymatrix:
+    print(f'{row[0]}|{row[1]}|{row[2]}')
 
 while finish == False:
     x = False
@@ -208,9 +251,31 @@ while y == False:
         print("Incorrect input. Try Again")
 """
 
-
-
-
-
-
-#sup
+"""
+    What happens in order: 
+        - Game is initialized (empty board, whatever else) 
+        - Loop - Until Someone wins: 
+            - Func GetPlayerMove: First player goes
+            - Func CheckValid: Check to see if first player valid move
+            - Func CheckWin: Check to see if first player wins 
+            - GetPlayerMove 
+            - CheckValid
+            - CheckWin
+        - Congradulations message 
+   
+   
+   
+   def checkValid ( symbol, row, column) : -> True / False 
+   
+   checkValid("", 0, 0) 
+   checkValid("X", 0, 0) -> True
+   checkValid("0", 0, 0) 
+   checkValid(27, 0, 0) 
+   checkValid(None, 0, 0) 
+   
+   checkValid("X", 0, 100) 
+   checkValid("0", r, 0) 
+   checkValid(27, 0, -2) 
+   checkValid(None, 0, 0)
+        
+"""
