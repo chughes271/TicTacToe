@@ -1,15 +1,21 @@
 """
     - Are there better ways to read inputs and make sure it is what you want
         -instead of a bunch of if statments?
+        :: Validate what it _is_ rather than what it's not::
+            :: Ex use Regex to validate the string
+
     - Don't know if the way I kept asking (if incorrect input) was the best way.
         -Ran into problems of function not returning or returning the incorrect info
     - I think the board is a global var - if it is IDK how else to initiate just in the first loop
         - Did not want to keep re clearing the board when loop was running
     - setting up Python for loops confuse me
 
-"""
-import numpy
 
+    :: External Project:
+        - User regex to lookup emails in a large text file (you'll have to figure out what all valid email characters are)
+
+"""
+# import numpy
 
 def printboard(board):
     for boardrow in board:
@@ -74,9 +80,9 @@ def checkforwin(board):
         if row[0] == row[1] and row[1] == row[2] and row[0] != "_":
             return(row[0])
     #Checks vertical wins
-    for col in numpy.transpose(board):
-        if col[0] == col[1] and col[1] == col[2]  and col[0] != "_":
-            return(col[0])
+    # for col in numpy.transpose(board):
+    #     if col[0] == col[1] and col[1] == col[2]  and col[0] != "_":
+    #         return(col[0])
     #Checks diagonal wins
     if board[0][0] == board[1][1] and board[1][1] == board[2][2] and board[0][0] != "_":
         return(board[0][0])
@@ -84,7 +90,7 @@ def checkforwin(board):
         return(board[0][2])
 
 
-board = [["_","_","_"],
+bigboard = [["_","_","_"],
          ["_","_","_"],
          ["_","_","_"]]
 
@@ -94,9 +100,9 @@ for k in range(9):
     else:
         player = 1
 
-    m,n = askplayer(player,board)
-    updateboard(m,n,board,player)
-    winner = checkforwin(board)
+    m,n = askplayer(player,bigboard)
+    updateboard(m,n,bigboard,player)
+    winner = checkforwin(bigboard)
     if winner == "X":
         print("Player 2 wins!")
         break
